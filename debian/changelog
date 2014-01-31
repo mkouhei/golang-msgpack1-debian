@@ -1,0 +1,5 @@
+golang-msgpack1 (1.0~git20130705+7509264-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)
+
+ -- Kouhei Maeda <mkouhei@palmtb.net>  Tue, 28 Jan 2014 09:55:20 +0900

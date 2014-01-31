@@ -1,0 +1,34 @@
+Source: golang-msgpack1
+Section: devel
+Priority: extra
+Maintainer: Kouhei Maeda <mkouhei@palmtb.net>
+Build-Depends: debhelper (>= 9.0.0),
+	dh-golang,
+	golang-go,
+	quilt,
+	golang-bson-dev,
+	python-all,
+	python-msgpack
+Standards-Version: 3.9.5
+Homepage: https://github.com/ugorji/go-msgpack
+
+Package: golang-msgpack1-dev
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, golang-go
+Description: MsgPack library for Go (deplecated version)
+ It provides features similar to encoding packages in the standard library (ie
+ json, xml, gob, etc). But this package is DEPRECATED as of May 29, 2013.
+ Supports:
+  * Standard Marshal/Unmarshal interface.
+  * Support for all exported fields (including anonymous fields)
+  * Standard field renaming via tags
+  * Encoding from any value (struct, slice, map, primitives, pointers,
+    interface{}, etc)
+  * Decoding into pointer to any non-nil value (struct, slice, map, int,
+    float32, bool, string, etc)
+  * Decoding into a nil interface{}
+  * Handles time.Time transparently (stores time as 2 element array: seconds
+    since epoch and nanosecond offset)
+  * Provides a Server and Client Codec so msgpack can be used as communication
+    protocol for net/rpc.
+

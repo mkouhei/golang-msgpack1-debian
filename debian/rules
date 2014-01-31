@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DH_GOPKG := github.com/ugorji/go-msgpack
+GOPATH := /usr/share/gocode:${CURDIR}/_build
+BLDPATH := $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+%:
+	dh $@ --buildsystem=golang --with=golang,quilt
+
+override_dh_auto_build:
+	mkdir -p ${CURDIR}/_build/src/${DH_GOPKG}
+	cp -a ${CURDIR}/helper.py ${CURDIR}/*.go ${CURDIR}/_build/src/${DH_GOPKG}/
+	cp -a ${CURDIR}/helper.py ${CURDIR}/obj-${BLDPATH}/src/${DH_GOPKG}/
+	go build -v
+
+override_dh_auto_install:
+	dh_auto_install -O--buildsystem=golang
+	find ${CURDIR}/debian -name helper.py -delete
+
+override_dh_auto_clean:
+	dh_clean
+	rm -rf ${CURDIR}/obj-${BLDPATH}
+	rm -rf ${CURDIR}/_build

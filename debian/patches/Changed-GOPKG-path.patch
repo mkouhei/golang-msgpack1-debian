@@ -1,0 +1,16 @@
+Description: Change path golang-bson-dev
+Origin: vendor
+Last-Update: 2014-01-28
+Index: golang-msgpack1/msgpack_bench_test.go
+===================================================================
+--- golang-msgpack1.orig/msgpack_bench_test.go	2014-01-28 09:51:04.130708869 +0900
++++ golang-msgpack1/msgpack_bench_test.go	2014-01-28 10:23:19.249827570 +0900
+@@ -33,7 +33,7 @@
+ package msgpack
+ 
+ import (
+-	"launchpad.net/mgo/bson"
++	"labix.org/v2/mgo/bson"
+ 	"encoding/json"
+ 	"encoding/gob"
+ 	"testing"
