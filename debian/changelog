@@ -1,4 +1,4 @@
-golang-msgpack1 (1.0~git20130705+7509264-1) unstable; urgency=low
+golang-ugorji-go-msgpack (1.0~git20130705+7509264-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)
 
